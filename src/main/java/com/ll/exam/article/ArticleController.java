@@ -24,6 +24,10 @@ public class ArticleController {
         rq.view("usr/article/list");
     }
 
+    public void showListAuto(Rq rq) {
+        rq.view("usr/article/listAuto");
+    }
+
     public void showWrite(Rq rq) {
         rq.view("usr/article/write");
     }
@@ -146,4 +150,6 @@ public class ArticleController {
 
         rq.successJson(articleDtos);
     }
+
+
 }
