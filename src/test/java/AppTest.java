@@ -1,5 +1,4 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ll.exam.article.dto.ArticleDto;
 import com.ll.exam.util.Ut;
 import org.junit.jupiter.api.Test;
@@ -21,7 +20,7 @@ public class AppTest  {
 
         ArticleDto articleDto = new ArticleDto(1, "제목", "내용");
 
-        String jsonStr = Ut.json.toJsonStr(articleDto, "");
+        String jsonStr = Ut.json.toStr(articleDto, "");
 
         assertThat(jsonStr).isNotBlank();
 
