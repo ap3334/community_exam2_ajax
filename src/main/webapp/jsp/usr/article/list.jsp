@@ -28,10 +28,12 @@
             fetch('/usr/article/getArticles/free')
             .then(data => data.json())
             .then(responseData => {
-                console.log(responseData);
+                const articleList = responseData.data;
+                const latestArticle = articleList[articleList.length - 1];
+                const content = new Date() + " : " + latestArticle.title + "<br/>";
 
                 // jquery
-                $('.place-1').append(responseData.resultCode + "<br/>");
+                $('.place-1').empty().prepend(content);
             });
         }
         </script>
