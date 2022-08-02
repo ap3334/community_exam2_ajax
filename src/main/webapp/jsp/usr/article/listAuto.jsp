@@ -16,7 +16,12 @@ function Articles__loadMore() {
                 const article = responseData.data[key];
                 console.log(article);
                 $('.articles').append(`
-                    <li>\${article.id}</li>
+                    <li>
+                        <a class="w-[40px] hover:underline hover:text-[red]" href="/usr/article/detail/free/\${article.id}">\${article.id}</a>
+                        <a class="flex-grow hover:underline hover:text-[red]" href="/usr/article/detail/free/\${article.id}">\${article.title}</a>
+                        <a onclick="if ( !confirm('정말로 삭제하시겠습니까?') ) return false;" class="hover:underline hover:text-[red] mr-2" href="/usr/article/delete/free/\${article.id}?_method=DELETE">삭제</a>
+                        <a class="hover:underline hover:text-[red]" href="/usr/article/modify/free/\${article.id}">수정</a>
+                    </li>
                 `);
             }
         });
@@ -40,5 +45,9 @@ function Articles__loadMore() {
         <button class="btn btn-sm" onclick="Articles__loadMore();">불러오기</button>
     </div>
 </section>
+
+<script>
+Articles__loadMore();
+</script>
 
 <%@ include file="../common/foot.jspf"%>
