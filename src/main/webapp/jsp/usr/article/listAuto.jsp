@@ -30,7 +30,8 @@ function Articles__loadMore() {
                 Article__lastId = articles[articles.length - 1].id;
             }
 
-            setTimeOut(Articles__loadMore, 3000);
+            Articles__loadMore(); // 즉시 다시 실행
+            setTimeOut(Articles__loadMore, 3000); // 3초 후에 다시 실행
         });
 
 
