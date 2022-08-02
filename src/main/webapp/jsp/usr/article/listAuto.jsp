@@ -4,10 +4,25 @@
 <%@ include file="../common/head.jspf"%>
 
 <script>
-function Article__loadMore() {
-    $('.articles').append(`
-        <li>하하하</li>
-    `);
+
+let Article__lastId = 0;
+
+function Articles__loadMore() {
+
+    fetch(`/usr/article/getArticles/free?fromId=${Article__lastId}`)
+        .then(data => data.json())
+        .then(responseData => {
+            for (const key in responseData.data) {
+                const article = responseData.data[key];
+                console.log(article);
+                $('.articles').append(`
+                    <li>\${article.id}</li>
+                `);
+            }
+        });
+
+
+
 }
 
 </script>
@@ -22,7 +37,7 @@ function Article__loadMore() {
 
         <hr>
 
-        <button class="btn btn-sm" onclick="Article__loadMore();">불러오기</button>
+        <button class="btn btn-sm" onclick="Articles__loadMore();">불러오기</button>
     </div>
 </section>
 
