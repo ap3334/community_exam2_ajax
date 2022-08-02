@@ -9,11 +9,12 @@ let Article__lastId = 0;
 
 function Articles__loadMore() {
 
-    fetch(`/usr/article/getArticles/free?fromId=${Article__lastId}`)
+    fetch(`/usr/article/getArticles/free?fromId=\${Article__lastId}`)
         .then(data => data.json())
         .then(responseData => {
-            for (const key in responseData.data) {
-                const article = responseData.data[key];
+            const articles = responseData.data;
+            for (const key in articles) {
+                const article = articles[key];
                 console.log(article);
                 $('.articles').append(`
                     <li>
@@ -23,6 +24,10 @@ function Articles__loadMore() {
                         <a class="hover:underline hover:text-[red]" href="/usr/article/modify/free/\${article.id}">수정</a>
                     </li>
                 `);
+            }
+
+            if (articles.length > 0) {
+                Article__lastId = articles[articles.length - 1].id;
             }
         });
 
