@@ -29,6 +29,8 @@ function Articles__loadMore() {
             if (articles.length > 0) {
                 Article__lastId = articles[articles.length - 1].id;
             }
+
+            setTimeOut(Articles__loadMore, 3000);
         });
 
 
