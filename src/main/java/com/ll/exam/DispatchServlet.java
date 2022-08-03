@@ -30,6 +30,9 @@ public class DispatchServlet extends HttpServlet {
                     case "/usr/chat/modifyRoom":
                         chatController.showModifyRoom(rq);
                         break;
+                    case "/usr/chat/room":
+                        chatController.showRoom(rq);
+                        break;
                     case "/usr/article/modify":
                         articleController.showModify(rq);
                         break;
@@ -55,6 +58,9 @@ public class DispatchServlet extends HttpServlet {
                 break;
             case "POST":
                 switch (rq.getActionPath()) {
+                    case "/usr/chat/writeMessage":
+                        chatController.doWriteMessage(rq);
+                        break;
                     case "/usr/chat/createRoom":
                         chatController.doCreateRoom(rq);
                         break;
@@ -73,6 +79,9 @@ public class DispatchServlet extends HttpServlet {
                 switch (rq.getActionPath()) {
                     case "/usr/article/delete":
                         articleController.doDelete(rq);
+                        break;
+                    case "/usr/chat/delete":
+                        chatController.doDelete(rq);
                         break;
                 }
         }
