@@ -1,5 +1,6 @@
 package com.ll.exam.chat;
 
+import com.ll.exam.Rq;
 import com.ll.exam.chat.dto.ChatRoomDto;
 
 import java.util.List;
@@ -18,5 +19,9 @@ public class ChatService {
 
     public List<ChatRoomDto> findAll() {
         return chatRoomRepository.findAll();
+    }
+
+    public ChatRoomDto findRoomById(long id) {
+        return chatRoomRepository.findById(id);
     }
 }

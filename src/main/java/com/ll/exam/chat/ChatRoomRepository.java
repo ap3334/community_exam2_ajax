@@ -39,4 +39,15 @@ public class ChatRoomRepository {
     public List<ChatRoomDto> findAll() {
         return datum;
     }
+
+    public ChatRoomDto findById(long id) {
+
+        for (ChatRoomDto chatRoom : datum) {
+            if (chatRoom.getId() == id) {
+                return chatRoom;
+            }
+        }
+
+        return null;
+    }
 }
