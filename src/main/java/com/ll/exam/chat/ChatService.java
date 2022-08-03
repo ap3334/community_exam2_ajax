@@ -1,6 +1,5 @@
 package com.ll.exam.chat;
 
-import com.ll.exam.Rq;
 import com.ll.exam.chat.dto.ChatRoomDto;
 
 import java.util.List;
@@ -8,6 +7,7 @@ import java.util.List;
 public class ChatService {
 
     private ChatRoomRepository chatRoomRepository;
+    private ChatMessageRepository chatMessageRepository;
 
     public ChatService() {
         chatRoomRepository = new ChatRoomRepository();
@@ -32,6 +32,12 @@ public class ChatService {
     public void delete(long id) {
 
         chatRoomRepository.delete(id);
+
+    }
+
+    public void writeMessage(long roomId, String body) {
+
+        chatMessageRepository.write(roomId, body);
 
     }
 }

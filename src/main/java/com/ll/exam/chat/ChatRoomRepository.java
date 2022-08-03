@@ -71,4 +71,5 @@ public class ChatRoomRepository {
         datum.remove(chatRoom);
 
     }
+
 }
