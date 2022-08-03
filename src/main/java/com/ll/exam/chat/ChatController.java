@@ -1,6 +1,9 @@
 package com.ll.exam.chat;
 
 import com.ll.exam.Rq;
+import com.ll.exam.chat.dto.ChatRoomDto;
+
+import java.util.List;
 
 public class ChatController {
 
@@ -37,4 +40,11 @@ public class ChatController {
     }
 
 
+    public void showRoomList(Rq rq) {
+
+        List<ChatRoomDto> chatRoomDtos = chatService.findAll();
+
+        rq.setAttr("rooms", chatRoomDtos);
+        rq.view("/usr/chat/roomList");
+    }
 }
