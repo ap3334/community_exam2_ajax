@@ -24,4 +24,8 @@ public class ChatService {
     public ChatRoomDto findRoomById(long id) {
         return chatRoomRepository.findById(id);
     }
+
+    public void modifyRoom(long id, String title, String body) {
+        chatRoomRepository.modifyRoom(id, title, body);
+    }
 }

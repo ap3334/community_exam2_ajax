@@ -50,4 +50,15 @@ public class ChatRoomRepository {
 
         return null;
     }
+
+    public void modifyRoom(long id, String title, String body) {
+
+        ChatRoomDto chatRoomDto = findById(id);
+
+        if (chatRoomDto == null) return;
+
+        chatRoomDto.setTitle(title);
+        chatRoomDto.setBody(body);
+
+    }
 }
